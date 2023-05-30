@@ -1,9 +1,11 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Game {
+public class Game implements Serializable {
+    private static final long serialVersionUID = 1L; // версия программя для сериализации
     // TODO заполнить ArrayList'ы правдой и действием, проверить работоспособность программы
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
@@ -28,6 +30,23 @@ public class Game {
     static List<String> truthWoman;
     static List<String> actionMan;
     static List<String> actionWoman;
+
+    static void serialization(){
+        List<List>listsSerialization = new ArrayList<>();
+        //todo
+        listsSerialization.add(easyTruthMan);
+        listsSerialization.add(easyTruthWoman);
+        listsSerialization.add(easyActionMan);
+        listsSerialization.add(easyActionWoman);
+        listsSerialization.add(normalTruthMan);
+        listsSerialization.add(normalTruthWoman);
+        listsSerialization.add(normalActionMan);
+        listsSerialization.add(normalActionWoman);
+        listsSerialization.add(hardTruthMan);
+        listsSerialization.add(hardTruthWoman);
+        listsSerialization.add(hardActionMan);
+        listsSerialization.add(hardActionWoman);
+    }
 
     static void createLists(){
         //TODO написать логику для создания только тех листов, которые нам нужны для выбранного Левела (если лень, можно и все создавать)
@@ -67,7 +86,7 @@ public class Game {
                 //вызывается лист с рандомным вопросом правды
             } else if (inputMan == 2) {
                 System.out.println(actionMan.get(random.nextInt(actionMan.size())));
-                //TODO вызывается лист с рандомным действием
+                //вызывается лист с рандомным действием
             } else if (inputMan == -1) {
                 System.exit(0);
             } else {
@@ -89,7 +108,7 @@ public class Game {
                 //вызывается лист с рандомным вопросом правды
             } else if (inputMan == 2) {
                 System.out.println(actionWoman.get(random.nextInt(actionWoman.size())));
-                //TODO вызывается лист с рандомным действием
+                //вызывается лист с рандомным действием
             } else if (inputWoman == -1) {
                 System.exit(0);
             } else {
