@@ -9,7 +9,20 @@ public class Main {
     static Scanner scanInt = new Scanner(System.in);
     static Scanner scanStr = new Scanner(System.in);
     public static void main(String[] args) {
+        System.out.println("Добро пожаловать в игру \"Правда или действие\"!\nВыполнить загрузку сохраненной игры?" +
+                " Файл сохранения должен быть в папке с программой.\nНажмите y (yes) или n (no)\nPowered by Oleg" +
+                " Sychev 2023");
+        String input = scanStr.nextLine();
+        if (input.equals("y")){
+            Game.deserializeLists();
             menu();
+        } else if (input.equals("n")) {
+            menu();
+        } else {
+            System.out.println("Загрузка сохраненной игры не была выполнена. Открываю меню игры");
+            menu();
+        }
+        //menu();
         }
 
     public static void menu(){
@@ -50,7 +63,8 @@ public class Main {
     public static void developerMode(){
         while (true){
             System.out.println("Выбран режим разработчика\nВыберите пункт меню цифрой:\n1. Редактирование легкого" +
-                    " режима\n2. Редактирование среднего режима\n3. Редактирование тяжелого режима\n4. Сериализация\n5. Десериализация\n-1 для выхода в главное меню\n-2 для завершения программы");
+                    " режима\n2. Редактирование среднего режима\n3. Редактирование тяжелого режима\n4. Сериализация\n" +
+                    "5. Десериализация\n6. Удалить все правды и действия для всех режимов\n7. Добавить правду в легкий режим по умолчанию\n-1 для выхода в главное меню\n-2 для завершения программы");
             int correctInput = scanInt.nextInt();
             if (correctInput == 1){
                 System.out.println("1.Добавить правду в легкий режим для девушки\n2. Добавить правду в легкий" +
@@ -59,8 +73,6 @@ public class Main {
                 correctInput = scanInt.nextInt();
                 if (correctInput == 1){
                     System.out.println("Введите правду в легкий режим для девушки:");
-                    //String easyTruthWoman = scanStr.nextLine(); если не будет работать, то использовать
-                    // эту переменную
                     Game.easyTruthWoman.add(scanStr.nextLine());
                 } else if (correctInput == 2){
                     System.out.println("Введите правду в легкий режим для парня:");
@@ -111,12 +123,19 @@ public class Main {
                 Game.serializeLists();
             } else if (correctInput == 5) {
                 Game.deserializeLists();
+            } else if (correctInput == 6) {
+                Game.clearAllLists();
+            } else if (correctInput == 7) {
+                Game.defaultEasyQuestions();
             } else if (correctInput == -1) {
                 menu();
                 //Game.serialize();
             } else if (correctInput == -2) {
                 //Game.serialize();
                 System.exit(0);
+            } else {
+                System.out.println("Такого пункта не существует. Открываю меню разработчика");
+                developerMode();
             }
         }
     }
