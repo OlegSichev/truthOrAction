@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +52,7 @@ public class Game implements Serializable {
             actionWoman = hardActionWoman;
         }
         while (true) {
-            System.out.println("Вопрос для " + Players.players.get(0).getNAME() + "\nВыбери:\n1.Правда\n2.Действие\n-1.Выход из программы");
+            System.out.println("Вопрос для " + Players.players.get(0).getNAME() + "\nВыбери:\n1.Правда\n2.Действие\n-1.Выход из программы\n-2.Сменить уровень сложности");
             int inputMan = scanner.nextInt();
             if (inputMan == 1) {
                 if (countTrueMan >= 3) {
@@ -67,11 +66,26 @@ public class Game implements Serializable {
                 System.out.println("Действие для " + Players.players.get(0).getNAME() + ": " + actionMan.get(random.nextInt(actionMan.size()))); //вызывается лист с рандомным действием
             } else if (inputMan == -1) {
                 System.exit(0);
+            } else if (inputMan == -2) {
+                System.out.println("Выберите уровень (введите нужную цифру):\n1. Разминка\n2. Вечеринка\n3. Хардкор 18+");
+                switch (inputMan = scanner.nextInt()) {
+                    case 1:
+                        Game.start(Main.Level.easy);
+                        break;
+                    case 2:
+                        Game.start(Main.Level.normal);
+                        break;
+                    case 3:
+                        Game.start(Main.Level.hard);
+                        break;
+                }
+            } else if (inputMan == 900) {
+                Main.developerMode();
             } else {
                 System.out.println("Вы ввели некорректное число"); // start();
             }
             System.out.println();
-            System.out.println("Вопрос для " + Players.players.get(1).getNAME() + "\nВыбери:\n1.Правда\n2.Действие\n-1.Выход из программы");
+            System.out.println("Вопрос для " + Players.players.get(1).getNAME() + "\nВыбери:\n1.Правда\n2.Действие\n-1.Выход из программы\n-2.Сменить уровень сложности");
             int inputWoman = scanner.nextInt();
             if (inputWoman == 1) {
                 if (countTrueWoman >= 3) {
@@ -85,6 +99,21 @@ public class Game implements Serializable {
                 System.out.println("Действие для " + Players.players.get(1).getNAME() + ": " + actionWoman.get(random.nextInt(actionWoman.size()))); //вызывается лист с рандомным действием
             } else if (inputWoman == -1) {
                 System.exit(0);
+            } else if (inputMan == -2) {
+                System.out.println("Выберите уровень (введите нужную цифру):\n1. Разминка\n2. Вечеринка\n3. Хардкор 18+\n-2.Сменить уровень сложности");
+                switch (inputMan = scanner.nextInt()) {
+                    case 1:
+                        Game.start(Main.Level.easy);
+                        break;
+                    case 2:
+                        Game.start(Main.Level.normal);
+                        break;
+                    case 3:
+                        Game.start(Main.Level.hard);
+                        break;
+                }
+            } else if (inputMan == 900) {
+                Main.developerMode();
             } else {
                 System.out.println("Вы ввели некорректное число");
                 System.out.println();
@@ -94,7 +123,9 @@ public class Game implements Serializable {
         }
     }
 
-    public static void defaultEasyQuestions() { //TODO добавить действия и прописать вызов метода в main
+    public static void defaultQuestionsAndActions() { //TODO добавить правду и действия для всех листов
+
+        //легкий уровень
         easyTruthWoman.add("Как думаешь, ты здесь самая красивая?");
         easyTruthWoman.add("Ты считаешь нас друзьями или приятелями, с которыми легко прекратишь общение?");
         easyTruthWoman.add("Какой поступок вспоминаешь и стыдишься его?");
@@ -196,6 +227,74 @@ public class Game implements Serializable {
         easyTruthMan.add("Веришь в существование платонической любви?");
         easyTruthMan.add("Кто в семье должен распоряжаться деньгами?");
         easyTruthMan.add("Тебе важно, чтобы твоя девушка нравилась твоему окружению?");
+
+        easyActionWoman.add("Обними игрока мужского пола");
+        easyActionWoman.add("Отшлепай второго игрока");
+        easyActionWoman.add("Поцелуй в щеку второго игрока");
+        easyActionWoman.add("Съешь максимально сексуально любой фрукт");
+        easyActionWoman.add("Соси палец второму игроку");
+        easyActionWoman.add("Шлепни себя по попе с очень сексуальным постаныванием");
+        easyActionWoman.add("Покажи в какой позе Ты обычно спишь");
+        easyActionWoman.add("Прочитай в слух последнее собщение в любой соц сети (ВК, Телега, Вотсап и т.п.");
+        easyActionWoman.add("В течени 10 минут харизматично добавляй цитаты к любой своей фразе или фразе второго" + " игрока, начинай с... \"Как сказал бы ... (твоя фраза - выдумай ее)");
+        easyActionWoman.add("Изобрази, словно едешь на лошади");
+        easyActionWoman.add("Изображай звуки плохо работающего крана на кухне");
+        easyActionWoman.add("Сядь на колени второму игроку");
+        easyActionWoman.add("Изобрази модель на подиуме");
+        easyActionWoman.add("Сделай приседания 20 раз (можно больше ;))");
+        easyActionWoman.add("Сделай сэлфи со вторым игроком");
+        easyActionWoman.add("Изображай коуча одну минуту");
+        easyActionWoman.add("Представь, что Ты алкоголичка и пришла на сбор анонимных алкоголиков. Разыграй эту" + " сценку");
+        easyActionWoman.add("Сексуально ругайся матом одну минуту");
+        easyActionWoman.add("Спой колыбельную второму игроку");
+        easyActionWoman.add("Выговори скороговорку из интернета");
+        easyActionWoman.add("Изображай одного из игроков, что б другие не догадались");
+        easyActionWoman.add("Сними один элемент одежды");
+        easyActionWoman.add("Если есть гитара - сыграй на ней любую песню, если нет - спой акапеллой, либо" + " зачитай рэп");
+        easyActionWoman.add("Прочитай стихотворение");
+        easyActionWoman.add("В течении 5 минут тараторишь, как Тина Канделаки");
+        easyActionWoman.add("Расскажи пошлый анекдот (можно прочитать из интернета, но лучше самой");
+        easyActionWoman.add("Засунь 4 пальца в рот и разговаривай так на протяжении 5 минут");
+        easyActionWoman.add("В течени 5 минут - каждые 30 секунд говоришь - Я  - суперзвезда, трепещите, нищеброды!");
+        easyActionWoman.add("На протяжении минуты разговаривай сама с собой вслух");
+        easyActionWoman.add("Выпей до дна свой напиток");
+        easyActionWoman.add("Пой песню с закрытым ртом, что б другие угадали");
+
+        easyActionMan.add("Расскажи пошлый анекдот (можно прочитать из интернета, но лучше самому)");
+        easyActionMan.add("Сними любой предмет одежды");
+        easyActionMan.add("Если есть гитара - сыграй на гитаре, если нет, то спой песню акапеллой или зачитай рэп");
+        easyActionMan.add("Отожмись 20 раз (Можно больше ;))");
+        easyActionMan.add("Представь, что Ты - бодибилдер на сцене. Сними рубашку и похвастайся мышцами");
+        easyActionMan.add("На протяжении минуты разговаривай сам с собой вслух");
+        easyActionMan.add("Выпей до дна свой напиток");
+
+        //средний уровень
+        normalTruthWoman.add("Сколько партнеров в сексе у тебя было за всю жизнь?");
+        normalTruthWoman.add("Нижнее белье какого цвета на тебе сейчас?");
+        normalTruthWoman.add("Какая по твоему мнению идеальная длина и ширана члена партнера?");
+        normalTruthWoman.add("С кем у тебя был самый плохой секс и самый лучший? Чем он запомнился в обеих случаях?" + " Расскажи");
+        normalTruthWoman.add("Расскажи максимально сексуальным голосом эротическую историю, можно из жизни," + " можно из интернета. Твоя цель - возбудить второго игрока этой историей");
+
+        normalActionWoman.add("Сними 2 любых элемента одежды (цепочки, сережки и т.п. не считаются)");
+        normalActionWoman.add("Целуйся по французски в течении минуты со вторым игроком");
+        normalActionWoman.add("Целуй второго игрока в губы по французски и в шею, одновременно соблазняя его" + " прикосновениями. Трогать можно где угодно, но под одежду залезать нельзя!");
+        normalActionWoman.add("Станцуй стриптиз под музыку, которую включит второй игрок");
+
+        normalTruthMan.add("Сними 2 любых элемента одежды (цепочки, сережки и т.п. не считаются)");
+
+        normalActionMan.add("Опиши свой самый яркий секс - чем он запомнился и с кем он был");
+
+
+        //сложный уровень
+        hardTruthWoman.add("Хотела бы попробовать секс втроем? МЖМ? Или ЖМЖ?");
+
+        hardActionWoman.add("Сделай миньет второму игроку");
+
+        hardTruthMan.add("Хотел бы попробовать секс втроем? МЖМ? Или ЖМЖ?");
+
+        hardActionMan.add("Сделай куни второму игроку");
+
+
     }
 
     public static void clearAllLists() { //можно потом доработать метод так, что б он принимал параметр с цифрой
@@ -217,8 +316,7 @@ public class Game implements Serializable {
 
     public static void serializeLists() {
         try {
-            FileOutputStream fileOut =
-                    new FileOutputStream("data.ser");
+            FileOutputStream fileOut = new FileOutputStream("data.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(easyTruthMan);
             out.writeObject(easyTruthWoman);

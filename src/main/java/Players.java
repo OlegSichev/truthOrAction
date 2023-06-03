@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Players {
-    enum Sex{
+    enum Sex {
         Man,
         Woman
     }
@@ -10,13 +10,14 @@ public class Players {
     static List<Players> players = new ArrayList<>();
     private final String NAME;
     private final Sex SEX;
-    public Players(String NAME, Sex SEX){
+
+    public Players(String NAME, Sex SEX) {
         this.NAME = NAME;
         this.SEX = SEX;
     }
 
-    public static void newPlayer(String name, Sex sex){
-        players.add(new Players (name, sex));
+    public static void newPlayer(String name, Sex sex) {
+        players.add(new Players(name, sex));
     }
 
     public String getNAME() {
