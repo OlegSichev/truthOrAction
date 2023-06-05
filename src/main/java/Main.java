@@ -21,12 +21,12 @@ public class Main {
         } else if (input.equals("n")) {
             System.out.println("Загрузка сохраненной игры не была выполнена. Были применены настройки с базой данных правды или действия по умолчанию.\n" +
                     " Открываю меню игры");
-            Game.defaultQuestionsAndActions();
+            defaultLists.defaultQuestionsAndActions();
             menu();
         } else {
             System.out.println("Загрузка сохраненной игры не была выполнена. Были применены настройки с базой данных правды или действия по умолчанию.\n" +
                     " Открываю меню игры");
-            Game.defaultQuestionsAndActions();
+            defaultLists.defaultQuestionsAndActions();
             menu();
         }
         //menu();
@@ -81,16 +81,16 @@ public class Main {
                 correctInput = scanInt.nextInt();
                 if (correctInput == 1) {
                     System.out.println("Введите правду в легкий режим для девушки:");
-                    Game.easyTruthWoman.add(scanStr.nextLine());
+                    defaultLists.easyTruthWoman.add(scanStr.nextLine());
                 } else if (correctInput == 2) {
                     System.out.println("Введите правду в легкий режим для парня:");
-                    Game.easyTruthMan.add(scanStr.nextLine());
+                    defaultLists.easyTruthMan.add(scanStr.nextLine());
                 } else if (correctInput == 3) {
                     System.out.println("Введите действие в легкий режим для девушки:");
-                    Game.easyActionWoman.add(scanStr.nextLine());
+                    defaultLists.easyActionWoman.add(scanStr.nextLine());
                 } else if (correctInput == 4) {
                     System.out.println("Введите действие в легкий режим для парня:");
-                    Game.easyActionMan.add(scanStr.nextLine());
+                    defaultLists.easyActionMan.add(scanStr.nextLine());
                 }
             } else if (correctInput == 2) {
                 System.out.println("1.Добавить правду в средний режим для девушки\n2. Добавить правду в средний " +
@@ -98,16 +98,16 @@ public class Main {
                 correctInput = scanInt.nextInt();
                 if (correctInput == 1) {
                     System.out.println("Введите правду в средний режим для девушки:");
-                    Game.normalTruthWoman.add(scanStr.nextLine());
+                    defaultLists.normalTruthWoman.add(scanStr.nextLine());
                 } else if (correctInput == 2) {
                     System.out.println("Введите правду в средний режим для парня:");
-                    Game.normalTruthMan.add(scanStr.nextLine());
+                    defaultLists.normalTruthMan.add(scanStr.nextLine());
                 } else if (correctInput == 3) {
                     System.out.println("Введите действие в средний режим для девушки:");
-                    Game.normalActionWoman.add(scanStr.nextLine());
+                    defaultLists.normalActionWoman.add(scanStr.nextLine());
                 } else if (correctInput == 4) {
                     System.out.println("Введите действие в средний режим для парня:");
-                    Game.normalActionMan.add(scanStr.nextLine());
+                    defaultLists.normalActionMan.add(scanStr.nextLine());
                 }
             } else if (correctInput == 3) {
                 System.out.println("1.Добавить правду в тяжелый режим для девушки\n2. Добавить правду в тяжелый " +
@@ -116,16 +116,16 @@ public class Main {
                 correctInput = scanInt.nextInt();
                 if (correctInput == 1) {
                     System.out.println("Введите правду в тяжелый режим для девушки:");
-                    Game.hardTruthWoman.add(scanStr.nextLine());
+                    defaultLists.hardTruthWoman.add(scanStr.nextLine());
                 } else if (correctInput == 2) {
                     System.out.println("Введите правду в тяжелый режим для парня:");
-                    Game.hardTruthMan.add(scanStr.nextLine());
+                    defaultLists.hardTruthMan.add(scanStr.nextLine());
                 } else if (correctInput == 3) {
                     System.out.println("Введите действие в тяжелый режим для девушки:");
-                    Game.hardActionWoman.add(scanStr.nextLine());
+                    defaultLists.hardActionWoman.add(scanStr.nextLine());
                 } else if (correctInput == 4) {
                     System.out.println("Введите действие в тяжелый режим для парня:");
-                    Game.hardActionMan.add(scanStr.nextLine());
+                    defaultLists.hardActionMan.add(scanStr.nextLine());
                 }
             } else if (correctInput == 4) {
                 Game.serializeLists();
@@ -134,7 +134,7 @@ public class Main {
             } else if (correctInput == 6) {
                 Game.clearAllLists();
             } else if (correctInput == 7) {
-                Game.defaultQuestionsAndActions();
+                defaultLists.defaultQuestionsAndActions();
             } else if (correctInput == -1) {
                 menu();
                 //Game.serialize();
