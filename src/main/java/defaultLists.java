@@ -14,6 +14,7 @@ public class defaultLists {
     static List<String> normalActionWoman = new ArrayList<>();
     static List<String> hardActionMan = new ArrayList<>();
     static List<String> hardActionWoman = new ArrayList<>();
+
     public static void defaultQuestionsAndActions() { //TODO добавить правду и действия для всех листов
 
         //легкий уровень
@@ -171,9 +172,9 @@ public class defaultLists {
         normalActionWoman.add("Целуй второго игрока в губы по французски и в шею, одновременно соблазняя его" + " прикосновениями. Трогать можно где угодно, но под одежду залезать нельзя!");
         normalActionWoman.add("Станцуй стриптиз под музыку, которую включит второй игрок");
 
-        normalTruthMan.add("Сними 2 любых элемента одежды (цепочки, сережки и т.п. не считаются)");
+        normalTruthMan.add("Опиши свой самый яркий секс - чем он запомнился и с кем он был");
 
-        normalActionMan.add("Опиши свой самый яркий секс - чем он запомнился и с кем он был");
+        normalActionMan.add("Сними 2 любых элемента одежды (цепочки, сережки и т.п. не считаются)");
 
 
         //сложный уровень

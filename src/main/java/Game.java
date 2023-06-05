@@ -2,7 +2,9 @@ import java.io.*;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+
 public class Game implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
@@ -54,15 +56,9 @@ public class Game implements Serializable {
             } else if (inputMan == -2) {
                 System.out.println("Выберите уровень (введите нужную цифру):\n1. Разминка\n2. Вечеринка\n3. Хардкор 18+");
                 switch (inputMan = scanner.nextInt()) {
-                    case 1:
-                        Game.start(Main.Level.easy);
-                        break;
-                    case 2:
-                        Game.start(Main.Level.normal);
-                        break;
-                    case 3:
-                        Game.start(Main.Level.hard);
-                        break;
+                    case 1 -> Game.start(Main.Level.easy);
+                    case 2 -> Game.start(Main.Level.normal);
+                    case 3 -> Game.start(Main.Level.hard);
                 }
             } else if (inputMan == 900) {
                 Main.developerMode();
@@ -87,15 +83,9 @@ public class Game implements Serializable {
             } else if (inputMan == -2) {
                 System.out.println("Выберите уровень (введите нужную цифру):\n1. Разминка\n2. Вечеринка\n3. Хардкор 18+\n-2.Сменить уровень сложности");
                 switch (inputMan = scanner.nextInt()) {
-                    case 1:
-                        Game.start(Main.Level.easy);
-                        break;
-                    case 2:
-                        Game.start(Main.Level.normal);
-                        break;
-                    case 3:
-                        Game.start(Main.Level.hard);
-                        break;
+                    case 1 -> Game.start(Main.Level.easy);
+                    case 2 -> Game.start(Main.Level.normal);
+                    case 3 -> Game.start(Main.Level.hard);
                 }
             } else if (inputMan == 900) {
                 Main.developerMode();
