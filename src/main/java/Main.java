@@ -11,6 +11,10 @@ public class Main {
     static Scanner scanStr = new Scanner(System.in);
 
     public static void main(String[] args) {
+        welcome();
+    }
+
+    public static void welcome(){
         System.out.println("Добро пожаловать в игру \"Правда или действие\"!\nВыполнить загрузку сохраненной игры?" +
                 " Файл сохранения должен быть в папке с программой.\nНажмите y (yes) или n (no)\nPowered by Oleg" +
                 " Sychev 2023");
@@ -29,7 +33,6 @@ public class Main {
             defaultLists.defaultQuestionsAndActions();
             menu();
         }
-        //menu();
     }
 
     public static void menu() {
