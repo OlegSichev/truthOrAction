@@ -24,7 +24,7 @@ public class Players {
         System.out.println("Введите имя парня");
         players.add(new Players(scanStr.nextLine(), Players.Sex.Man));
         System.out.println("Введите имя девушки");
-        players.add(new Players(scanStr.nextLine(), Players.Sex.Man));
+        players.add(new Players(scanStr.nextLine(), Sex.Woman));
     }
 
     public static void newPlayers() {
