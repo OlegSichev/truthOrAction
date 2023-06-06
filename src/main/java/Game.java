@@ -14,11 +14,7 @@ public class Game implements Serializable {
     static List<String> truthWoman;
     static List<String> actionMan;
     static List<String> actionWoman;
-
-//    static void createLists() {
-//        easyActionMan.add("Пробное легкое действие");
-//        easyActionMan.add("Пробное легкое действие2");
-//    }
+    
 
     public static void start(Main.Level level) {
         //createLists();
