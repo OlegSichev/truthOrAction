@@ -8,14 +8,10 @@ public class Game implements Serializable {
     private static final long serialVersionUID = 1L;
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
-    static int countTrueMan = 0;
-    static int countTrueWoman = 0;
     static List<String> truthMan;
     static List<String> truthWoman;
     static List<String> actionMan;
     static List<String> actionWoman;
-
-    static int countPlayers = Players.players.size(); //todo
     static int cycleCount = 0;
 
     public static void gameLevel() {
@@ -52,17 +48,18 @@ public class Game implements Serializable {
             if (Players.players.get(cycleCount).getSEX().equals(Players.Sex.Man)) {
                 int inputMan = scanner.nextInt();
                 if (inputMan == 1) {
-                    if (countTrueMan >= 3) {
+                    if (Players.players.get(cycleCount).getCountTrue() >= 3) {
                         System.out.println("Вы использовали уже 3 правды, придется исполнить действие!"); //TODO некорректно считает использованные правды
-                        countTrueMan = 0;
+                        Players.players.get(cycleCount).countTruePlusOrZero(0);
                         System.out.println("Действие для " + Players.players.get(cycleCount).getNAME() + ": " +
                                 actionMan.get(random.nextInt(actionMan.size())));
                     } else {
                         System.out.println("Вопрос для " + Players.players.get(cycleCount).getNAME() + ": "
                                 + truthMan.get(random.nextInt(truthMan.size()))); //вызывается лист с рандомным вопросом
                         // правды
+                        //countTrueMan++;
+                        Players.players.get(cycleCount).countTruePlusOrZero(1);
                     }
-                    countTrueMan++;
                 } else if (inputMan == 2) {
                     System.out.println("Действие для " + Players.players.get(cycleCount).getNAME() + ": " +
                             actionMan.get(random.nextInt(actionMan.size()))); //вызывается лист с рандомным действием
@@ -81,43 +78,43 @@ public class Game implements Serializable {
                     System.out.println("Вы ввели некорректное число"); // start();
                 }
             } else if (Players.players.get(cycleCount).getSEX().equals(Players.Sex.Woman)) {
-                    int inputWoman = scanner.nextInt();
-                    if (inputWoman == 1) {
-                        if (countTrueWoman >= 3) {
-                            System.out.println("Вы использовали уже 3 правды, придется исполнить действие!"); //TODO некорректно считает использованные правды
-                            countTrueWoman = 0;
-                            System.out.println("Действие для " + Players.players.get(cycleCount).getNAME() + ": " +
-                                    actionWoman.get(random.nextInt(actionWoman.size())));
-                        } else {
-                            System.out.println("Вопрос для " + Players.players.get(cycleCount).getNAME() + ": "
-                                    + truthWoman.get(random.nextInt(truthWoman.size()))); //вызывается лист с рандомным вопросом
-                            // правды
-                        }
-                        countTrueWoman++;
-                    } else if (inputWoman == 2) {
+                int inputWoman = scanner.nextInt();
+                if (inputWoman == 1) {
+                    if (Players.players.get(cycleCount).getCountTrue() >= 3) {
+                        System.out.println("Вы использовали уже 3 правды, придется исполнить действие!"); //TODO некорректно считает использованные правды
+                        Players.players.get(cycleCount).countTruePlusOrZero(0);
                         System.out.println("Действие для " + Players.players.get(cycleCount).getNAME() + ": " +
-                                actionWoman.get(random.nextInt(actionWoman.size()))); //вызывается лист с рандомным действием
-                    } else if (inputWoman == -1) {
-                        System.exit(0);
-                    } else if (inputWoman == -2) {
-                        System.out.println("Выберите уровень (введите нужную цифру):\n1. Разминка\n2. Вечеринка\n3. Хардкор 18+");
-                        switch (inputWoman = scanner.nextInt()) {
-                            case 1 -> Game.start(Main.Level.easy);
-                            case 2 -> Game.start(Main.Level.normal);
-                            case 3 -> Game.start(Main.Level.hard);
-                        }
-                    } else if (inputWoman == 900) {
-                        Main.developerMode();
+                                actionWoman.get(random.nextInt(actionWoman.size())));
                     } else {
-                        System.out.println("Вы ввели некорректное число"); // start();
+                        System.out.println("Вопрос для " + Players.players.get(cycleCount).getNAME() + ": "
+                                + truthWoman.get(random.nextInt(truthWoman.size()))); //вызывается лист с рандомным вопросом
+                        // правды
+                        Players.players.get(cycleCount).countTruePlusOrZero(1);
                     }
+                } else if (inputWoman == 2) {
+                    System.out.println("Действие для " + Players.players.get(cycleCount).getNAME() + ": " +
+                            actionWoman.get(random.nextInt(actionWoman.size()))); //вызывается лист с рандомным действием
+                } else if (inputWoman == -1) {
+                    System.exit(0);
+                } else if (inputWoman == -2) {
+                    System.out.println("Выберите уровень (введите нужную цифру):\n1. Разминка\n2. Вечеринка\n3. Хардкор 18+");
+                    switch (inputWoman = scanner.nextInt()) {
+                        case 1 -> Game.start(Main.Level.easy);
+                        case 2 -> Game.start(Main.Level.normal);
+                        case 3 -> Game.start(Main.Level.hard);
                     }
+                } else if (inputWoman == 900) {
+                    Main.developerMode();
+                } else {
+                    System.out.println("Вы ввели некорректное число"); // start();
+                }
+            }
             cycleCount++;
             if (cycleCount == (Players.players.size())) {
                 cycleCount = 0;
-                }
             }
         }
+    }
 
     public static void clearAllLists() { //можно потом доработать метод так, что б он принимал параметр с цифрой
         // и по ней чистил все правды и действиятолько для определенного режима игры, либо чистил только

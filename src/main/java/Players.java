@@ -12,12 +12,24 @@ public class Players {
     static Scanner scanInt = new Scanner(System.in);
     static List<Players> players = new ArrayList<>();
     static int input;
+    private int countTrue = 0;
     private final String NAME;
     private final Sex SEX;
 
     public Players(String NAME, Sex SEX) {
         this.NAME = NAME;
         this.SEX = SEX;
+    }
+
+    public void countTruePlusOrZero(int zeroOrOne) {
+        switch (zeroOrOne) {
+            case 0 -> countTrue = 0;
+            case 1 -> countTrue++;
+        }
+    }
+
+    public int getCountTrue() {
+        return countTrue;
     }
 
     public static void newTwoPlayers() {
