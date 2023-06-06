@@ -15,9 +15,19 @@ public class Game implements Serializable {
     static List<String> actionMan;
     static List<String> actionWoman;
 
+    static int players = Players.players.size(); //todo
+
+    public static void gameLevel() {
+        System.out.println("Выберите сложность игры:\n1.Разминка\n2.Вечеринка 18+\n3.Хардкор");
+        int level = scanner.nextInt();
+        switch (level) {
+            case 1 -> start(Main.Level.easy);
+            case 2 -> start(Main.Level.normal);
+            case 3 -> start(Main.Level.hard);
+        }
+    }
 
     public static void start(Main.Level level) {
-        //createLists();
         if (level.equals(Main.Level.easy)) {
             truthMan = defaultLists.easyTruthMan;
             truthWoman = defaultLists.easyTruthWoman;
@@ -34,6 +44,7 @@ public class Game implements Serializable {
             actionMan = defaultLists.hardActionMan;
             actionWoman = defaultLists.hardActionWoman;
         }
+
         while (true) {
             System.out.println("Вопрос для " + Players.players.get(0).getNAME() + "\nВыбери:\n1.Правда\n2.Действие\n-1.Выход из программы\n-2.Сменить уровень сложности");
             int inputMan = scanner.nextInt();

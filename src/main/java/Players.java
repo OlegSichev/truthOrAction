@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Players {
     enum Sex {
@@ -7,7 +8,10 @@ public class Players {
         Woman
     }
 
+    static Scanner scanStr = new Scanner(System.in);
+    static Scanner scanInt = new Scanner(System.in);
     static List<Players> players = new ArrayList<>();
+    static int input;
     private final String NAME;
     private final Sex SEX;
 
@@ -16,12 +20,45 @@ public class Players {
         this.SEX = SEX;
     }
 
-    public static void newPlayer(String name, Sex sex) {
-        players.add(new Players(name, sex));
+    public static void newTwoPlayers() {
+        System.out.println("Введите имя парня");
+        players.add(new Players(scanStr.nextLine(), Players.Sex.Man));
+        System.out.println("Введите имя девушки");
+        players.add(new Players(scanStr.nextLine(), Players.Sex.Man));
+    }
+
+    public static void newPlayers() {
+        String namePlayer;
+        System.out.println("Введите количество игроков (от 2 до 6):");
+        int sex = 0;
+        input = scanInt.nextInt();
+        for (int i = 0; i < input; i++) {
+            System.out.println("Введите имя для " + (i + 1) + " игрока:");
+            namePlayer = scanStr.nextLine();
+            System.out.println("Выберите пол для " + (i + 1) + " игрока:\n1. Мужской\n2. Женский");
+            sex = scanInt.nextInt();
+            if (sex == 1) {
+                Players player = new Players(namePlayer, Players.Sex.Man);
+                players.add(player);
+                System.out.println("Имя игрока: " + player.getNAME() + ". Пол: " + player.getSEX() + ". - Игрок" +
+                        " создан.");
+            } else if (sex == 2) {
+                Players player = new Players(namePlayer, Players.Sex.Woman);
+                players.add(player);
+                System.out.println("Имя игрока: " + player.getNAME() + ". Пол: " + player.getSEX() + ". - Игрок" +
+                        " создан.");
+            } else {
+                System.out.println("Такой цифры не существует. Попробуйте еще раз");
+            }
+        }
     }
 
     public String getNAME() {
         return NAME;
+    }
+
+    public Sex getSEX() {
+        return SEX;
     }
 
     @Override

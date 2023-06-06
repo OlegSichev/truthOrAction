@@ -14,7 +14,7 @@ public class Main {
         welcome();
     }
 
-    public static void welcome(){
+    public static void welcome() {
         System.out.println("Добро пожаловать в игру \"Правда или действие\"!\nВыполнить загрузку сохраненной игры?" +
                 " Файл сохранения должен быть в папке с программой.\nНажмите y (yes) или n (no)\nPowered by Oleg" +
                 " Sychev 2023");
@@ -43,23 +43,15 @@ public class Main {
 
             int input = scanInt.nextInt();
 
-            switch (input){
+            switch (input) {
                 case 1 -> {
-                    System.out.println("Введите имя парня");
-                Players.newPlayer(scanStr.nextLine(), Players.Sex.Man);
-                System.out.println("Введите имя девушки");
-                Players.newPlayer(scanStr.nextLine(), Players.Sex.Woman);
-                System.out.println("Выберите сложность игры:\n1.Разминка\n2.Вечеринка 18+\n3.Хардкор");
-                int level = scanInt.nextInt();
-                if (level == 1) {
-                    Game.start(Level.easy);
-                } else if (level == 2) {
-                    Game.start(Level.normal);
-                } else if (level == 3) {
-                    Game.start(Level.hard);
+                    Players.newTwoPlayers();
+                    Game.gameLevel();
                 }
+                case 2 -> {
+                    Players.newPlayers();
+                    Game.gameLevel();
                 }
-                case 2 -> System.out.println("Режим больше двух игроков пока недоступен");
                 case -1 -> System.exit(0);
                 case 900 -> developerMode();
                 default -> System.out.println("Такой цифры не существует, попробуем еще раз :)");
