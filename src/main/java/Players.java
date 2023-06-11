@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -43,25 +44,31 @@ public class Players {
         String namePlayer;
         System.out.println("Введите количество игроков (от 2 до 6):");
         int sex = 0;
-        input = scanInt.nextInt();
-        for (int i = 0; i < input; i++) {
-            System.out.println("Введите имя для " + (i + 1) + " игрока:");
-            namePlayer = scanStr.nextLine();
-            System.out.println("Выберите пол для " + (i + 1) + " игрока:\n1. Мужской\n2. Женский");
-            sex = scanInt.nextInt();
-            if (sex == 1) {
-                Players player = new Players(namePlayer, Players.Sex.Man);
-                players.add(player);
-                System.out.println("Имя игрока: " + player.getNAME() + ". Пол: " + player.getSEX() + ". - Игрок" +
-                        " создан.");
-            } else if (sex == 2) {
-                Players player = new Players(namePlayer, Players.Sex.Woman);
-                players.add(player);
-                System.out.println("Имя игрока: " + player.getNAME() + ". Пол: " + player.getSEX() + ". - Игрок" +
-                        " создан.");
-            } else {
-                System.out.println("Такой цифры не существует. Попробуйте еще раз");
+        try {
+            input = scanInt.nextInt();
+            for (int i = 0; i < input; i++) {
+                System.out.println("Введите имя для " + (i + 1) + " игрока:");
+                namePlayer = scanStr.nextLine();
+                System.out.println("Выберите пол для " + (i + 1) + " игрока:\n1. Мужской\n2. Женский");
+                sex = scanInt.nextInt();
+                if (sex == 1) {
+                    Players player = new Players(namePlayer, Players.Sex.Man);
+                    players.add(player);
+                    System.out.println("Имя игрока: " + player.getNAME() + ". Пол: " + player.getSEX() + ". - Игрок" +
+                            " создан.");
+                } else if (sex == 2) {
+                    Players player = new Players(namePlayer, Players.Sex.Woman);
+                    players.add(player);
+                    System.out.println("Имя игрока: " + player.getNAME() + ". Пол: " + player.getSEX() + ". - Игрок" +
+                            " создан.");
+                } else {
+                    System.out.println("Такой цифры не существует. Попробуйте еще раз");
+                }
             }
+        } catch (InputMismatchException e) {
+            System.out.println("Вы ввели не число, попробуйте еще раз");
+            scanInt.next(); // Очистка буфера ввода после ошибочного ввода
+            newPlayers();
         }
     }
 

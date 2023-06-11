@@ -15,6 +15,8 @@ public class defaultLists {
     static List<String> hardActionMan = new ArrayList<>();
     static List<String> hardActionWoman = new ArrayList<>();
 
+    static List<String> iNever = new ArrayList<>(); //Лист игры Я никогда не
+
     public static void defaultQuestionsAndActions() { //TODO добавить правду и действия для всех листов
 
         //легкий уровень
@@ -173,8 +175,10 @@ public class defaultLists {
         normalActionWoman.add("Станцуй стриптиз под музыку, которую включит второй игрок");
 
         normalTruthMan.add("Опиши свой самый яркий секс - чем он запомнился и с кем он был");
+        normalTruthMan.add("Твоя любимая поза в сексе?");
 
         normalActionMan.add("Сними 2 любых элемента одежды (цепочки, сережки и т.п. не считаются)");
+        normalActionMan.add("Возбуди любого из игроков противоположного пола прикосновениями через одежду");
 
 
         //сложный уровень
@@ -186,6 +190,10 @@ public class defaultLists {
 
         hardActionMan.add("Сделай куни второму игроку");
 
+
+        //Игра Я Никогда Не
+        iNever.add("Я никогда прыгал с парашютом");
+        iNever.add("Я никогда не летал на самолете");
 
     }
 }
