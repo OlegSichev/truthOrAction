@@ -10,7 +10,7 @@ public class INever {
 
     public static void menuTheGameINever() {
         System.out.println("Запущена игра \"Я никогда не\". Выберите нужный пункт в меню (ввод происходит с помощью" +
-                " цифр.\n1. Поехали!\n2. Правила игры\n3. Выход в главное меню\n-1 Выход из игры");
+                " цифр).\n1. Поехали!\n2. Правила игры\n3. Выход в главное меню\n-1 Выход из игры");
         try {
             switch (scanInt.nextInt()) {
                 case 1 -> INever.startINever();
@@ -28,7 +28,7 @@ public class INever {
     }
 
     public static void startINever() {
-        System.out.println(gameLists.iNever.get(random.nextInt(gameLists.iNever.size())));
+        System.out.println(GameLists.iNever.get(random.nextInt(GameLists.iNever.size())));
         System.out.println("\nНажмите 1 для продолжения, 2 что б прочитать правила игры, 3 для выхода в главное меню," +
                 " -1 для выхода из игры");
         try {

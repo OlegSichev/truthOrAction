@@ -14,7 +14,7 @@ public class TruthOrAction {
 
     public static void menuTruthOrAction() {
         while (true) {
-            System.out.println("Добро пожаловать в игру \"Правда или действие\"\nВыберите режим:\n1. Игра на двоих\n2." +
+            System.out.println("Запущена игра \"Правда или действие\"\nВыберите режим:\n1. Игра на двоих\n2." +
                     " Игра на компанию\nP.S. Взаимодействие с игрой производится путем ввода цифры пункта меню.\nДля" +
                     " выхода из программы введите -1");
 
@@ -54,20 +54,20 @@ public class TruthOrAction {
 
     public static void startTruthOrAction(Main.Level level) {
         if (level.equals(Main.Level.easy)) {
-            truthMan = gameLists.easyTruthMan;
-            truthWoman = gameLists.easyTruthWoman;
-            actionMan = gameLists.easyActionMan;
-            actionWoman = gameLists.easyActionWoman;
+            truthMan = GameLists.easyTruthMan;
+            truthWoman = GameLists.easyTruthWoman;
+            actionMan = GameLists.easyActionMan;
+            actionWoman = GameLists.easyActionWoman;
         } else if (level.equals(Main.Level.normal)) {
-            truthMan = gameLists.normalTruthMan;
-            truthWoman = gameLists.normalTruthWoman;
-            actionMan = gameLists.normalActionMan;
-            actionWoman = gameLists.normalActionWoman;
+            truthMan = GameLists.normalTruthMan;
+            truthWoman = GameLists.normalTruthWoman;
+            actionMan = GameLists.normalActionMan;
+            actionWoman = GameLists.normalActionWoman;
         } else if (level.equals(Main.Level.hard)) {
-            truthMan = gameLists.hardTruthMan;
-            truthWoman = gameLists.hardTruthWoman;
-            actionMan = gameLists.hardActionMan;
-            actionWoman = gameLists.hardActionWoman;
+            truthMan = GameLists.hardTruthMan;
+            truthWoman = GameLists.hardTruthWoman;
+            actionMan = GameLists.hardActionMan;
+            actionWoman = GameLists.hardActionWoman;
         }
 
         while (true) {

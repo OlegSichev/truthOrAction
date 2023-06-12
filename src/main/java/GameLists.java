@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class gameLists {
+public class GameLists {
     static List<String> easyTruthMan = new ArrayList<>();
     static List<String> easyTruthWoman = new ArrayList<>();
     static List<String> normalTruthMan = new ArrayList<>();
@@ -16,6 +16,7 @@ public class gameLists {
     static List<String> hardActionWoman = new ArrayList<>();
 
     static List<String> iNever = new ArrayList<>(); //Лист игры Я никогда не
+    static List<String> crocodile = new ArrayList<>(); //Лист игры в Крокодил
 
     public static void defaultQuestionsAndActions() { //TODO добавить правду и действия для всех листов
 
@@ -208,6 +209,12 @@ public class gameLists {
         iNever.add("Я никогда не влюблялся/не строил отношения с человеком своего пола");
         iNever.add("Я никогда не пользовался chatGPT");
         iNever.add("Я никогда не занимался косплеем");
+
+
+        //Игра в Крокодил
+        crocodile.add("Шампунь");
+        crocodile.add("Бодибилдер");
+        crocodile.add("Человек паук");
 
     }
 }
