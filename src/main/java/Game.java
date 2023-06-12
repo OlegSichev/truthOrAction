@@ -52,7 +52,7 @@ public class Game implements Serializable {
                     int inputMan = scanInt.nextInt();
                     if (inputMan == 1) {
                         if (Players.players.get(cycleCount).getCountTrue() >= 3) {
-                            System.out.println("Вы использовали уже 3 правды, придется исполнить действие!"); //TODO некорректно считает использованные правды
+                            System.out.println("Вы использовали уже 3 правды, придется исполнить действие!");
                             Players.players.get(cycleCount).countTruePlusOrZero(0);
                             System.out.println("Действие для " + Players.players.get(cycleCount).getNAME() + ": " +
                                     actionMan.get(random.nextInt(actionMan.size())));
@@ -118,7 +118,7 @@ public class Game implements Serializable {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Вы ввели не число, попробуйте еще раз");
-                scanInt.next(); // Очистка буфера ввода после ошибочного ввода
+                scanInt.next();
                 gameLevel();
             }
         }
@@ -141,7 +141,7 @@ public class Game implements Serializable {
         defaultLists.hardActionWoman.clear();
     }
 
-    public static void startINever(){
+    public static void startINever() {
         System.out.println(defaultLists.iNever.get(random.nextInt(defaultLists.iNever.size())));
         System.out.println("\nНажмите 1 для продолжения, 2 что б прочитать правила игры, 3 для выхода в главное меню," +
                 " -1 для выхода из игры");
@@ -152,19 +152,19 @@ public class Game implements Serializable {
                 case -1 -> System.exit(0);
                 default -> startINever();
             }
-        } catch (InputMismatchException e){
-                System.out.println("Вы ввели не число, попробуйте еще раз");
-                scanInt.next(); // Очистка буфера ввода после ошибочного ввода
-                startINever();
+        } catch (InputMismatchException e) {
+            System.out.println("Вы ввели не число, попробуйте еще раз");
+            scanInt.next();
+            startINever();
         }
     }
 
-    public static void theRulesOfGameINever(){
+    public static void theRulesOfGameINever() {
         System.out.println("Правила игры в \"Я никогда НЕ\":\nИгра вам пишет какой-либо факт, ведущий его озвучивает." +
                 " Если Вы это делали - пьете, если нет, то не пьете.\nНапример, ведущий говорит: Я никогда не летал на" +
                 " самолете. Те, кто летали - пьют. Кто НЕ летали - не пьют\nНачинаем игру?\nНажми \"y\", что б начать" +
                 " игру, либо \"n\", что б выйти в главное меню");
-        switch (scanStr.nextLine()){
+        switch (scanStr.nextLine()) {
             case "y" -> startINever();
             case "n" -> Main.welcome();
             default -> theRulesOfGameINever();

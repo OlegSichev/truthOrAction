@@ -64,7 +64,7 @@ public class Main {
             }
         } catch (InputMismatchException e) {
             System.out.println("Вы ввели не число, попробуйте еще раз");
-            scanInt.next(); // Очистка буфера ввода после ошибочного ввода
+            scanInt.next();
             menu();
         }
     }
@@ -92,9 +92,9 @@ public class Main {
                     default -> System.out.println("Такой цифры не существует, попробуем еще раз :)");
                 }
             } catch (InputMismatchException e) {
-                    System.out.println("Вы ввели не число, попробуйте еще раз");
-                    scanInt.next();
-                    menuTruthOrAction();
+                System.out.println("Вы ввели не число, попробуйте еще раз");
+                scanInt.next();
+                menuTruthOrAction();
             }
         }
     }
@@ -176,9 +176,9 @@ public class Main {
                     }
                 }
             } catch (InputMismatchException e) {
-                    System.out.println("Вы ввели не число, попробуйте еще раз");
-                    scanInt.next(); // Очистка буфера ввода после ошибочного ввода
-                    developerMode();
+                System.out.println("Вы ввели не число, попробуйте еще раз");
+                scanInt.next();
+                developerMode();
             }
         }
     }

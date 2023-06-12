@@ -67,7 +67,7 @@ public class Players {
             }
         } catch (InputMismatchException e) {
             System.out.println("Вы ввели не число, попробуйте еще раз");
-            scanInt.next(); // Очистка буфера ввода после ошибочного ввода
+            scanInt.next();
             newPlayers();
         }
     }
