@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class defaultLists {
+public class gameLists {
     static List<String> easyTruthMan = new ArrayList<>();
     static List<String> easyTruthWoman = new ArrayList<>();
     static List<String> normalTruthMan = new ArrayList<>();
